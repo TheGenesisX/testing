@@ -6,7 +6,7 @@ def main():
 
     # Get a random element for the game.
     chosen_word = choice(guesses)
-    test = input("Test: ")
+    print(chosen_word)
 
     hangman = ['_' for _ in chosen_word]
     users_current_word = "".join(hangman)
