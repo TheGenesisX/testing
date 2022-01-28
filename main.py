@@ -21,12 +21,13 @@ def main():
         print(users_current_word)
         users_guess = input("Enter a character guess: ")
 
-        if users_guess in chosen_word:
+        if users_guess.lower() in chosen_word.casefold():
             # Look for al the character coincidences.
             i = 0
             while i < len(chosen_word):
-                if chosen_word[i] == users_guess:
-                    hangman[i] = users_guess
+                if chosen_word.casefold()[i] == users_guess.lower():
+                    # Put the same character from the original word (either uppercase or lowercase).
+                    hangman[i] = chosen_word[i]
                 i += 1
         else:
             lives -= 1
