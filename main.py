@@ -11,7 +11,13 @@ def main():
     hangman = ['_' for _ in chosen_word]
     users_current_word = "".join(hangman)
 
+    lives = 5
+
     while users_current_word != chosen_word:
+        if lives == 0:
+            break
+
+        print("♥" * lives)
         print(users_current_word)
         users_guess = input("Enter a character guess: ")
 
@@ -22,9 +28,14 @@ def main():
                 if chosen_word[i] == users_guess:
                     hangman[i] = users_guess
                 i += 1
+        else:
+            lives -= 1
 
         users_current_word = "".join(hangman)
 
-    print(users_current_word, "\nYou won!!!")
+    if lives == 0:
+        print("Sorry, you lost :(")
+    else:
+        print(users_current_word, "\nYou won!!!")
 
 main()
