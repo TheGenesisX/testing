@@ -2,13 +2,19 @@ from random import choice
 
 def main():
     # Diccionary for the game.
-    guesses = ["Computer", "Videogame", "Cellphone"]
+    guesses = ["The Lord of the Rings", "Harry Potter", "Star Wars"]
 
     # Get a random element for the game.
     chosen_word = choice(guesses)
     print(chosen_word)
 
-    hangman = ['_' for _ in chosen_word]
+    hangman = []
+    for char in chosen_word:
+        if char != ' ':
+            hangman.append("_")
+        else:
+            hangman.append(" ")
+
     users_current_word = "".join(hangman)
 
     lives = 5
